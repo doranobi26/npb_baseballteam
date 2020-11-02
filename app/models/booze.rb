@@ -1,0 +1,2 @@
+class Booze < ApplicationRecord
+end
