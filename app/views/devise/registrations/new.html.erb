@@ -3,13 +3,38 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="field">
+    <%= f.label :ユーザー名 %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :eメール %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="form">
+    <%= f.label :性別 %>
+    <%= f.collection_select :sex_id, Sex.all, :id, :sex,class:"select-controll" %>
+  </div>
+
+  <div class="form">
+    <%= f.label :出身国 %>
+    <%= f.collection_select :birthplace_id, Birthplace.all, :id, :cuntry,class:"select-controll" %>
+  </div>
+
+  <div class="form">
+    <%= f.label :出身地 %>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture,class:"select-controll" %>
+  </div>
+
+  <div class="form">
+    <%= f.label :酒の強さ %>
+    <%= f.collection_select :booze_id, Booze.all, :id, :which,class:"select-controll" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -17,12 +42,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :確認用パスワード %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録を実行" %>
   </div>
 <% end %>
 
