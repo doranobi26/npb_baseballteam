@@ -39,6 +39,10 @@
             <%= f.label :出身地 %>
             <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture,class:"select-controll" %>
          </p>
+         <p class="form">
+            <%= f.label :酒の強さ %>
+             <%= f.collection_select :booze_id, Booze.all, :id, :which,class:"select-controll" %>
+          </p>
           <p class="update_btn">
             <%= f.submit "更新",class:"btn btn-block btn-primary" %>
           </p>
