@@ -8,10 +8,6 @@
     <%= f.text_area :caption,class:"btn-block form-controll" %>
     <!-- idを加えることでgetElementById("select_file")をとれる。 -->
   </p>
-  <!-- <p class="form"> -->
-    <%#= f.label :添付画像選択（1枚以上3枚以内） %>
-    <%#= f.attachment_field :images_images, multiple: true, id:"select_file" %>
-  <!-- </p> -->
   <p class="form">
     <%= f.label :好きなチーム選択 %>
     <%= f.collection_select :team_id, Team.all, :id, :name,class:"select-controll" %>
