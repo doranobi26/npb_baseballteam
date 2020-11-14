@@ -38,14 +38,36 @@
           <p class="form">
             <%= f.label :出身地 %>
             <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture,class:"select-controll" %>
-         </p>
-         <p class="form">
-            <%= f.label :酒の強さ %>
-             <%= f.collection_select :booze_id, Booze.all, :id, :which,class:"select-controll" %>
           </p>
-          <p class="update_btn">
-            <%= f.submit "更新",class:"btn btn-block btn-primary" %>
-          </p>
+
+            <p class="form">
+              <%= f.label :好きなチーム選択 %>
+              <%= f.collection_select :team_id, Team.all, :id, :name,class:"select-controll" %>
+            </p>
+
+            <p class="form">
+              <%= f.label :好きな選手入力とポジション選択  %>
+              <%= f.text_field :athlete,class:"btn-block form-controll" %>
+               <%= f.collection_select :favorite_id, Favorite.all, :id, :role,class:"select-controll" %>
+            </p>
+
+            <p class="form">
+              <%= f.label :好きな監督選択 %>
+              <%= f.collection_select :manager_id, Manager.all, :id, :name,class:"select-controll" %>
+            </p>
+
+            <p class="form">
+              <%= f.label :ライバルチーム選択 %>
+              <%= f.collection_select :rival_id, Rival.all, :id, :name,class:"select-controll" %>
+            </p>
+
+            <p class="form">
+               <%= f.label :酒の強さ %>
+               <%= f.collection_select :booze_id, Booze.all, :id, :which,class:"select-controll" %>
+            </p>
+            <p class="update_btn">
+              <%= f.submit "更新",class:"btn btn-block btn-primary" %>
+            </p>
         <% end %>
       </div>
       <div class="col-xs-1"></div>
