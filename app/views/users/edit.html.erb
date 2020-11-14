@@ -65,6 +65,15 @@
                <%= f.label :酒の強さ %>
                <%= f.collection_select :booze_id, Booze.all, :id, :which,class:"select-controll" %>
             </p>
+            <p class="form">
+              <%= f.label :好きなお酒（銘柄） %>
+              <%= f.text_field :brand,class:"btn-block form-controll" %>
+            </p>
+
+            <p class="form">
+              <%= f.label :お酒のジャンル %>
+              <%= f.collection_select :sake_id, Sake.all, :id, :genre,class:"select-controll" %>
+            </p>
             <p class="update_btn">
               <%= f.submit "更新",class:"btn btn-block btn-primary" %>
             </p>

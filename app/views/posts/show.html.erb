@@ -13,7 +13,6 @@
   <div class="row col-xs-12">
     <span class="label label-info">投稿者:<%= @user.name %></span>
     <span class="label label-info">性別:<%= @user.sex.sex %></span>
-    <span class="label label-info">アルコール耐性:<%= @user.booze.which %></span>
     <span class="label label-info">投稿日時:<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
   </div>
 
@@ -23,16 +22,16 @@
       <td><%= @user.team.name %></td>
     </tr>
     <tr>
-      <td>お気に入り監督</td>
+      <td>好きな監督</td>
       <td><%= @user.manager.name %></td>
+    </tr>
+    <tr>
+      <td>好きな選手</td>
+      <td><%= @user.athlete %></td>
     </tr>
     <tr>
       <td>ライバルチーム</td>
       <td><%= @user.rival.name %></td>
-    </tr>
-    <tr>
-      <td>選手名(所属チーム)</td>
-      <td><%= @post.player %><%= @post.role.position %>(<%= @post.affiliation.team %>)</td>
     </tr>
   </table>
 
@@ -47,7 +46,7 @@
   <div class="row center-block">
     <div class="panel panel-warning">
       <div class="panel-heading">
-        <p class="average stars"></p><%= @post.title %>&nbsp;&nbsp;&nbsp;&nbsp;[選手名:<%= @post.player %><%= @post.role.position %>(<%= @post.affiliation.team %>)]
+        <p class="average stars"></p><%= @post.title %>&nbsp;&nbsp;&nbsp;&nbsp;[選手名(所属チーム):<%= @post.player %><%= @post.role.position %>(<%= @post.affiliation.team %>)]
       </div>
       <div class="panel-body">
         <%= @post.caption %>

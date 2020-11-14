@@ -54,6 +54,16 @@
     <%= f.collection_select :booze_id, Booze.all, :id, :which,class:"select-controll" %>
   </div>
 
+  <div class="form">
+    <%= f.label :好きなお酒（銘柄）  %>
+    <%= f.text_field :brand,class:"btn-block form-controll" %>
+  </div>
+
+  <div class="form">
+    <%= f.label :お酒のジャンル %>
+    <%= f.collection_select :sake_id, Sake.all, :id, :genre,class:"select-controll" %>
+  </div>
+
   <div class="field">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
