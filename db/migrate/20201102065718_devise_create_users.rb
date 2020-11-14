@@ -44,6 +44,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :rival_id
       t.string  :athlete
       t.integer :favorite_id
+      t.string :brand
+      t.integer :sake_id
       t.timestamps null: false
     end
 
