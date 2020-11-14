@@ -7,23 +7,19 @@
     <%= f.label :説明文（300字以内） %>
     <%= f.text_area :caption,class:"btn-block form-controll" %>
   </p>
+
   <p class="form">
-    <%= f.label :好きなチーム選択 %>
-    <%= f.collection_select :team_id, Team.all, :id, :name,class:"select-controll" %>
-  </p>
-  <p class="form">
-    <%= f.label :お気に入り監督選択 %>
-    <%= f.collection_select :manager_id, Manager.all, :id, :name,class:"select-controll" %>
-  </p>
-  <p class="form">
-    <%= f.label :ライバルチーム選択 %>
-    <%= f.collection_select :rival_id, Rival.all, :id, :name,class:"select-controll" %>
-  </p>
-  <p class="form">
-    <%= f.label :好きな選手とポジション選択  %>
+    <%= f.label :選手名入力とポジション選択  %>
     <%= f.text_field :player,class:"btn-block form-controll" %>
     <%= f.collection_select :role_id, Role.all, :id, :position,class:"select-controll" %>
   </p>
+
+  <p class="form">
+    <%= f.label :所属チーム %>
+    <%= f.collection_select :affiliation_id, Affiliation.all, :id, :team,class:"select-controll" %>
+  </p>
+
+
   <div class="submit-button">
     <%= f.submit "投稿する",class: "btn btn-primary btn-block post-button",id:"submit_button" %>
   </div>

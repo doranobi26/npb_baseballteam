@@ -11,6 +11,10 @@ class User < ApplicationRecord
   belongs_to :sex
   belongs_to :prefecture
   belongs_to :booze
+  belongs_to :team
+  belongs_to :manager
+  belongs_to :rival
+  belongs_to :favorite
 
   attachment :profile_image
 

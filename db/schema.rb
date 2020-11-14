@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_072116) do
+ActiveRecord::Schema.define(version: 2020_11_14_082217) do
+
+  create_table "affiliations", force: :cascade do |t|
+    t.string "team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "birthplaces", force: :cascade do |t|
     t.string "cuntry"
@@ -29,6 +35,12 @@ ActiveRecord::Schema.define(version: 2020_11_02_072116) do
     t.integer "post_id"
     t.text "comment"
     t.float "star"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,12 +69,10 @@ ActiveRecord::Schema.define(version: 2020_11_02_072116) do
     t.string "title"
     t.text "caption"
     t.integer "user_id"
-    t.integer "team_id"
     t.string "player"
-    t.integer "manager_id"
-    t.integer "rival_id"
-    t.integer "role_id"
     t.integer "type_id"
+    t.integer "role_id"
+    t.integer "affiliation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -116,6 +126,11 @@ ActiveRecord::Schema.define(version: 2020_11_02_072116) do
     t.integer "prefecture_id"
     t.integer "sex_id"
     t.integer "booze_id"
+    t.integer "team_id"
+    t.integer "manager_id"
+    t.integer "rival_id"
+    t.string "athlete"
+    t.integer "favorite_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

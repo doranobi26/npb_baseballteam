@@ -20,6 +20,34 @@
           <%= @user.introduction %>
         </div>
       </div>
+
+
+      <table class="table table-hover table-invrese">
+        <tr>
+          <td>性別</td>
+          <td><%= @user.sex.sex %></td>
+        </tr>
+        <tr>
+          <td>お酒の強さ</td>
+          <td><%= @user.booze.which %></td>
+        </tr>
+        <tr>
+          <td>好きなチーム</td>
+          <td><%= @user.team.name %></td>
+        </tr>
+        <tr>
+          <td>好きな監督</td>
+          <td><%= @user.manager.name %></td>
+        </tr>
+         <tr>
+          <td>好きな選手</td>
+          <td><%= @user.athlete %></td>
+        </tr>
+        <tr>
+          <td>ライバルチーム</td>
+          <td><%= @user.rival.name %></td>
+        </tr>
+      </table>
     </div>
   </div>
   <div class="row text-center">
