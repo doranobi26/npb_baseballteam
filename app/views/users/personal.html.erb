@@ -28,6 +28,14 @@
           <td><%= @user.sex.sex %></td>
         </tr>
         <tr>
+          <td>出身国</td>
+          <td><%= @user.birthplace.cuntry %></td>
+        </tr>
+         <tr>
+          <td>出身地</td>
+          <td><%= @user.prefecture.prefecture %></td>
+        </tr>
+        <tr>
           <td>お酒の強さ</td>
           <td><%= @user.booze.which %></td>
         </tr>
@@ -46,6 +54,10 @@
         <tr>
           <td>ライバルチーム</td>
           <td><%= @user.rival.name %></td>
+        </tr>
+        <tr>
+          <td>好きなお酒</td>
+          <td><%= @user.brand %>(<%= @user.sake.genre %>)</td>
         </tr>
       </table>
     </div>

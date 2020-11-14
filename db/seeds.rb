@@ -391,6 +391,34 @@ Favorite.create!(
     }
   ])
 
+Sake.create!(
+  [
+    {
+      genre: "日本酒"
+    },
+    {
+      genre: "ビール"
+    },
+    {
+      genre: "発泡酒"
+    },
+    {
+      genre: "焼酎"
+    },
+    {
+      genre: "ワイン"
+    },
+    {
+      genre: "ウイスキー"
+    },
+    {
+      genre: "果実酒"
+    },
+    {
+      genre: "蒸留酒"
+    }
+  ])
+
 
 
 
