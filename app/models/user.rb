@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+  has_many :alcohols
   has_many :comments, dependent: :destroy
   has_many :nices, dependent: :destroy
   belongs_to :birthplace
@@ -15,6 +16,7 @@ class User < ApplicationRecord
   belongs_to :manager
   belongs_to :rival
   belongs_to :favorite
+  belongs_to :sake
 
   attachment :profile_image
 

@@ -52,8 +52,8 @@
   </div>
   <div class="row text-center">
     <% if @user == current_user %>
-      <%= link_to "投稿する",new_post_path %><br>
+      <%= link_to "投稿する(野球)",new_post_path %><br>
     <% end %>
-    <%= link_to "投稿一覧",user_path(@user.id) %>
+    <%= link_to "投稿一覧(野球)",user_path(@user.id) %>
   </div>
   </div>

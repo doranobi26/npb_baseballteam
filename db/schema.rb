@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_082217) do
+ActiveRecord::Schema.define(version: 2020_11_14_090920) do
 
   create_table "affiliations", force: :cascade do |t|
     t.string "team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "alcohols", force: :cascade do |t|
+    t.string "title"
+    t.text "caption"
+    t.integer "user_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +50,12 @@ ActiveRecord::Schema.define(version: 2020_11_14_082217) do
 
   create_table "favorites", force: :cascade do |t|
     t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,6 +110,12 @@ ActiveRecord::Schema.define(version: 2020_11_14_082217) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sakes", force: :cascade do |t|
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sexes", force: :cascade do |t|
     t.string "sex"
     t.datetime "created_at", null: false
@@ -131,6 +152,8 @@ ActiveRecord::Schema.define(version: 2020_11_14_082217) do
     t.integer "rival_id"
     t.string "athlete"
     t.integer "favorite_id"
+    t.string "brand"
+    t.integer "sake_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
