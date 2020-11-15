@@ -62,10 +62,16 @@
       </table>
     </div>
   </div>
-  <div class="row text-center">
+  <div class="row text-center baseball">
     <% if @user == current_user %>
       <%= link_to "投稿する(野球)",new_post_path %><br>
     <% end %>
     <%= link_to "投稿一覧(野球)",user_path(@user.id) %>
+  </div>
+  <div class="row text-center sake">
+    <% if @user == current_user %>
+      <%= link_to "投稿する(お酒)",new_alcohol_path %><br>
+    <% end %>
+    <%= link_to "投稿一覧(お酒)",user_browsing_path%>
   </div>
   </div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row col-xs-12">
+    <% if @user == current_user %>
+      <h3 class="col-xs-12">私の投稿詳細</h3>
+    <% else %>
+      <h3 class="col-xs-12"><%=@user.name%>さんの投稿詳細画面</h3>
+    <% end %>
+  </div>
+  <div class="row">
+    <table class="table table-hover table-invrese">
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th><i class="far fa-clock"></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @alcohols.each do |alcohol| %>
+          <tr>
+            <td><%= alcohol.title %></td>
+            <td><%= alcohol.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <th><%= link_to "詳細ページ",alcohol_path(alcohol.id) %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   root 'homes#top'
   get 'home/about' => 'homes/about'
+  get 'home/terms' => 'homes/terms'
   get 'user/personal/:id' => 'users#personal',as:"user_personal"
+  get 'user/browsing/:id' => 'users#browsing',as:"user_browsing"
   get 'user/nice/:id' => 'users#nice',as:"user_nice"
   get 'search' => 'searchs#search'
 
@@ -13,6 +15,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only:[:create, :destroy]
     resource :nices, only: [:create, :destroy]
+  end
+
+  resources :alcohols do
+    resources :talks, only:[:create, :destroy]
+    resource :goods, only: [:create, :destroy]
   end
 
 end

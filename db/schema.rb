@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_090920) do
   create_table "alcohols", force: :cascade do |t|
     t.string "title"
     t.text "caption"
+    t.string "brand"
     t.integer "user_id"
     t.integer "genre_id"
     t.datetime "created_at", null: false

@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  def browsing
+    @user = User.find(params[:id])
+    @alcohols = @user.alcohols
+  end
+
   def index
     @users = User.all
   end
@@ -31,6 +36,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image, :birthplace_id, :sex_id, :booze_id, :prefecture_id)
+    params.require(:user).permit(:name, :introduction, :profile_image, :birthplace_id, :sex_id, :booze_id, :prefecture_id, :sake_id)
   end
 end

@@ -4,6 +4,7 @@ class CreateAlcohols < ActiveRecord::Migration[5.2]
 
       t.string :title
       t.text :caption
+      t.string :brand
       t.integer :user_id
       t.integer :genre_id
 
