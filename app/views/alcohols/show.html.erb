@@ -1,1 +1,44 @@
-show.html.erb
+<div class="container">
+  <div class="row col-xs-12">
+    <% if @user == current_user %>
+      <h3 class="col-xs-12">私の投稿詳細</h3>
+    <% else %>
+      <h3 class="col-xs-12"><%=@user.name%>さんの投稿詳細画面</h3>
+    <% end %>
+    <% if @user == current_user %>
+      <%= link_to "編集", edit_alcohol_path(@alcohol.id), class:"btn btn-success btn-sm" %>
+      <%= link_to "削除", alcohol_path(@alcohol.id),"data-confirm"=>"本当に削除しますか?", class:"btn btn-danger btn-sm", method: :delete %>
+    <% end %>
+  </div>
+  <div class="row col-xs-12">
+    <span class="label label-info">投稿者:<%= @user.name %></span>
+    <span class="label label-info">性別:<%= @user.sex.sex %></span>
+    <span class="label label-info">投稿日時:<%= @alcohol.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+  </div>
+
+  <table class="table table-hover table-invrese">
+    <tr>
+      <td>好きなお酒の銘柄</td>
+      <td><%= @user.brand %></td>
+    </tr>
+    <tr>
+      <td>好きなお酒のジャンル</td>
+      <td><%= @user.sake.genre %></td>
+    </tr>
+    <tr>
+      <td>お酒の強さ</td>
+      <td><%= @user.booze.which %></td>
+    </tr>
+  </table>
+
+  <div class="row center-block">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <p class="average stars"></p><%= @alcohol.title %>
+      </div>
+      <div class="panel-body">
+        <%= @alcohol.caption %>
+      </div>
+    </div>
+  </div>
+</div>

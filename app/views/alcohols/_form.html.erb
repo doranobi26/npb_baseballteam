@@ -1,1 +1,20 @@
-_form.html.erb
+<%= form_with model:@alcohol, html:{name: 'form'} do |f| %>
+  <p class="form">
+    <%= f.label :タイトル（20字以内）  %>
+    <%= f.text_field :title,class:"btn-block form-controll" %>
+  </p>
+  <p class="form">
+    <%= f.label :説明文（300字以内） %>
+    <%= f.text_area :caption,class:"btn-block form-controll" %>
+  </p>
+
+  <p class="form">
+    <%= f.label :銘柄入力と種類選択  %>
+    <%= f.text_field :brand,class:"btn-block form-controll" %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :genre,class:"select-controll" %>
+  </p>
+
+  <div class="submit-button">
+    <%= f.submit "投稿する",class: "btn btn-primary btn-block post-button",id:"submit_button" %>
+  </div>
+<% end %>
