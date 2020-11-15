@@ -32,7 +32,7 @@ class AlcoholsController < ApplicationController
 
   def update
     @alcohol = Alcohol.find(params[:id])
-    if  @alcohol.update
+    if  @alcohol.update(alcohol_params)
       redirect_to alcohol_path
     else
       render "edit"
