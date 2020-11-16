@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :alcohols
   has_many :comments, dependent: :destroy
   has_many :nices, dependent: :destroy
+  has_many :user_rooms
+  has_many :chats
   belongs_to :birthplace
   belongs_to :sex
   belongs_to :prefecture

@@ -15,7 +15,7 @@
         <% @alcohols.each do |alcohol| %>
           <tr>
             <td>
-              <%=link_to user_personal_path(post.user.id) do %>
+              <%=link_to user_personal_path(alcohol.user.id) do %>
                 <%=attachment_image_tag alcohol.user, :profile_image, size: "50x50",format: 'jpeg', fallback: "default.jpg" %><br>
                 <%= alcohol.user.name %>
               <% end %>
