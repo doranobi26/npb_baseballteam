@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'user/browsing/:id' => 'users#browsing',as:"user_browsing"
   get 'user/nice/:id' => 'users#nice',as:"user_nice"
   get 'search' => 'searchs#search'
+  get 'chat/:id' => 'chats#show', as: 'chat'
 
   resources :users, only: [:index, :show, :edit, :update]
   resources :posts do
@@ -21,5 +22,7 @@ Rails.application.routes.draw do
     resources :talks, only:[:create, :destroy]
     resource :goods, only: [:create, :destroy]
   end
+
+  resources :chats, only: [:create]
 
 end
