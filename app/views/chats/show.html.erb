@@ -1,15 +1,23 @@
 <div class="containert z">
   <div class="row text-center">
-    <%= form_with model: @chat do |f| %>
-      <%= f.text_field :message %>
-      <%= f.hidden_field :room_id %>
-      <%= f.submit "送信" %>
-    <% end %>
+    <h1 class="col-xs-12">Chat Space</h1>
+    <div class="text-center">
+      <%= form_with model: @chat do |f| %>
+        <div class="col-xs-10">
+          <%= f.text_field :message,class:"btn-block z", placeholder: "文章を入力して下さい" %>
+          <%= f.hidden_field :room_id %>
+        </div>
+        <div class="col-xs-2">
+          <%= f.submit "送信",class: "btn btn-info btn-block btn-sm" %>
+        </div>
+      <% end %>
+    </div>
     <table class="table table-hover table-invrese">
       <thead>
         <tr>
           <td>投稿者名</td>
           <td>投稿内容</td>
+          <td>投稿日時</td>
         </tr>
       </thead>
       <tbody>
