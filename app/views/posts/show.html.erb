@@ -10,10 +10,27 @@
       <%= link_to "削除", post_path(@post.id),"data-confirm"=>"本当に削除しますか?", class:"btn btn-danger btn-sm", method: :delete %>
     <% end %>
   </div>
+
   <div class="row col-xs-12">
     <span class="label label-info">投稿者:<%= @user.name %></span>
     <span class="label label-info">性別:<%= @user.sex.sex %></span>
     <span class="label label-info">投稿日時:<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+  </div>
+
+  <div class="row heart">
+    <% if user_signed_in? %>
+      <% if @post.niced_by?(current_user) %>
+        <%= link_to post_nices_path(@post.id), method: :delete, remote: :true do %>
+          <i class="fas fa-heart favorite"></i>
+          <%= @post.nices.count %>件
+        <% end %>
+      <% else %>
+        <%= link_to post_nices_path(@post.id), method: :post, remote: :true do %>
+          <i class="far fa-heart favorite"></i>
+          <%= @post.nices.count %>件
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 
   <table class="table table-hover table-invrese">
@@ -35,14 +52,6 @@
     </tr>
   </table>
 
-
-
-
-
-
-
-
-  
   <div class="row center-block">
     <div class="panel panel-warning">
       <div class="panel-heading">
@@ -53,4 +62,20 @@
       </div>
     </div>
   </div>
+  <div class="row comment-space">
+    <%= render 'posts/comment', post: @post %>
+  </div>
 </div>
+
+<script>
+  $('.average').raty({
+    size: 36, // 星のサイズ
+    score: "<%=@post.comments.average(:star).to_f.round(1) %>",//星の平均値。小数点第１。
+    starOff: "<%=asset_path('star-off.png')%>",// 星なし
+    starOn: "<%=asset_path('star-on.png')%>",//星有り
+    starHalf: "<%=asset_path('star-half.png')%>",// 星半分
+    scoreName: 'review[star]',
+    half: true,// 星の半分の入力を実行
+    readOnly: true, //星の評価を固定化
+  });
+</script>

@@ -21,6 +21,7 @@ class AlcoholsController < ApplicationController
   def show
     @alcohol = Alcohol.find(params[:id])
     @user = @alcohol.user
+    @impression=Impression.new
   end
 
   def edit

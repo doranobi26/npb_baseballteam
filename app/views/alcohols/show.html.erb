@@ -16,6 +16,22 @@
     <span class="label label-info">投稿日時:<%= @alcohol.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
   </div>
 
+  <div class="row heart">
+    <% if user_signed_in? %>
+      <% if @alcohol.peted_by?(current_user) %>
+        <%= link_to alcohol_pet_path(@alcohol.id), method: :delete, remote: :true do %>
+          <i class="fas fa-heart favorite"></i>
+          <%= @alcohol.pets.count %>件
+        <% end %>
+      <% else %>
+        <%= link_to alcohol_pets_path(@alcohol.id), method: :post, remote: :true do %>
+          <i class="far fa-heart favorite"></i>
+          <%= @alcohol.pets.count %>件
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
   <table class="table table-hover table-invrese">
     <tr>
       <td>好きなお酒の銘柄</td>
@@ -41,4 +57,20 @@
       </div>
     </div>
   </div>
+  <div class="row comment-space">
+    <%= render 'alcohols/impression', alcohol: @alcohol %>
+  </div>
 </div>
+
+<script>
+  $('.average').raty({
+    size: 36, // 星のサイズ
+    score: "<%=@alcohol.impressions.average(:evaluation).to_f.round(1) %>",//星の平均値。小数点第１。
+    starOff: "<%=asset_path('star-off.png')%>",// 星なし
+    starOn: "<%=asset_path('star-on.png')%>",//星有り
+    starHalf: "<%=asset_path('star-half.png')%>",// 星半分
+    scoreName: 'review[evaluation]',
+    half: true,// 星の半分の入力を実行
+    readOnly: true, //星の評価を固定化
+  });
+</script>
