@@ -7,9 +7,11 @@ class User < ApplicationRecord
   has_many :posts
   has_many :alcohols
   has_many :comments, dependent: :destroy
+  has_many :impressions, dependent: :destroy
   has_many :nices, dependent: :destroy
   has_many :user_rooms
   has_many :chats
+  has_many :pets
   belongs_to :birthplace
   belongs_to :sex
   belongs_to :prefecture
@@ -21,5 +23,7 @@ class User < ApplicationRecord
   belongs_to :sake
 
   attachment :profile_image
+
+
 
 end

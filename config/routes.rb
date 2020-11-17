@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :alcohols do
-    resources :talks, only:[:create, :destroy]
-    resource :goods, only: [:create, :destroy]
+    resources :pets, only:[:create, :destroy]
+    resource :impressions, only: [:create, :destroy]
   end
 
   resources :chats, only: [:create]
