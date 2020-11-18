@@ -19,6 +19,11 @@
     <%= f.collection_select :affiliation_id, Affiliation.all, :id, :team,class:"select-controll" %>
   </p>
 
+  <p class="form">
+    <%= f.label :添付画像選択（1枚以上3枚以内） %>
+    <%= f.attachment_field :images_images, multiple: true, id:"select_file" %>
+  </p>
+
 
   <div class="submit-button">
     <%= f.submit "投稿する",class: "btn btn-primary btn-block post-button",id:"submit_button" %>

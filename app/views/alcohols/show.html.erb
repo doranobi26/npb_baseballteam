@@ -57,6 +57,11 @@
       </div>
     </div>
   </div>
+  <div class="row text-center">
+      <% @pictures.each do |picture| %>
+        <%= attachment_image_tag picture, :picture, format: 'jpeg', size:'310x310' %>
+      <% end %>
+    </div>
   <div class="row comment-space">
     <%= render 'alcohols/impression', alcohol: @alcohol %>
   </div>

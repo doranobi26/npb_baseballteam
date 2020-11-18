@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    #@post.images.new
+    @post.images.new
   end
 
   def create
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post.id)
     else
-      #@post.images.new
+      @post.images.new
       render "new"
     end
   end
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user  = @post.user
     @comment=Comment.new
-    #@images = @post.images
+    @images = @post.images
   end
 
   def edit
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :caption, :user_id,:player,:role_id, :affiliation_id)
+    params.require(:post).permit(:title, :caption, :user_id,:player,:role_id, :affiliation_id, images_images: [])
   end
 
 

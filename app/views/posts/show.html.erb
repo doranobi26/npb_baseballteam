@@ -62,6 +62,11 @@
       </div>
     </div>
   </div>
+  <div class="row text-center">
+    <% @images.each do |image| %>
+      <%= attachment_image_tag image, :image, format: 'jpeg', size:'310x310' %>
+    <% end %>
+  </div>
   <div class="row comment-space">
     <%= render 'posts/comment', post: @post %>
   </div>
