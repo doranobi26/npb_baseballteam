@@ -2,6 +2,7 @@ class AlcoholsController < ApplicationController
 
   def new
     @alcohol = Alcohol.new
+    @alcohol.pictures.new
   end
 
   def create
@@ -10,6 +11,7 @@ class AlcoholsController < ApplicationController
     if @alcohol.save
       redirect_to alcohol_path(@alcohol.id)
     else
+      @alcohol.pictures.new
       render "new"
     end
   end
@@ -22,6 +24,7 @@ class AlcoholsController < ApplicationController
     @alcohol = Alcohol.find(params[:id])
     @user = @alcohol.user
     @impression=Impression.new
+    @pictures = @alcohol.pictures
   end
 
   def edit
@@ -49,6 +52,6 @@ class AlcoholsController < ApplicationController
 
   private
   def alcohol_params
-    params.require(:alcohol).permit(:title, :caption, :brand, :genre_id)
+    params.require(:alcohol).permit(:title, :caption, :brand, :genre_id, pictures_pictures: [])
   end
 end
