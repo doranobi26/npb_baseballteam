@@ -17,6 +17,7 @@ class AlcoholsController < ApplicationController
   end
 
   def index
+    user=User.where(is_deleted: false)
     @alcohols = Alcohol.all
   end
 

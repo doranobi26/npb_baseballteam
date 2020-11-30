@@ -46,6 +46,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :favorite_id
       t.string :brand
       t.integer :sake_id
+      t.boolean :is_deleted, default: false
       t.timestamps null: false
     end
 
