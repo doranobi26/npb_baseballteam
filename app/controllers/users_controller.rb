@@ -2,16 +2,24 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    if @user.is_deleted == false
+      @posts = @user.posts
+    else
+      redirect_to root_path
+    end
   end
 
   def browsing
     @user = User.find(params[:id])
-    @alcohols = @user.alcohols
+    if @user.is_deleted == false
+      @alcohols = @user.alcohols
+    else
+      redirect_to root_path
+    end
   end
 
   def index
-    @users = User.all
+    @users = User.all.where(is_deleted: false).reverse_order
   end
 
   def edit
@@ -31,7 +39,25 @@ class UsersController < ApplicationController
   end
 
   def personal
+    #@user = User.find(params[:id])
+    @user = User.where(id: params[:id], is_deleted: false).first
+    if @user.present?
+    else
+      redirect_to root_path
+    end
+  end
+
+
+  def hide
     @user = User.find(params[:id])
+    @user.update!(is_deleted: true)
+    Nice.where(user_id: @user.id).destroy_all
+    Pet.where(user_id: @user.id).destroy_all
+    Post.where(user_id: @user.id).destroy_all
+    Comment.where(user_id: @user.id).destroy_all
+    Impression.where(user_id: @user.id).destroy_all
+    reset_session
+    redirect_to root_path
   end
 
   private

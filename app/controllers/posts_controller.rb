@@ -17,8 +17,10 @@ class PostsController < ApplicationController
   end
 
   def index
+    user=User.where(is_deleted: false)
     @posts = Post.all
   end
+
 
   def show
     @post = Post.find(params[:id])

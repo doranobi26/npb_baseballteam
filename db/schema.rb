@@ -198,6 +198,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_061933) do
     t.integer "favorite_id"
     t.string "brand"
     t.integer "sake_id"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'user/nice/:id' => 'users#nice',as:"user_nice"
   get 'search' => 'searchs#search'
   get 'chat/:id' => 'chats#show', as: 'chat'
+  put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
   resources :users, only: [:index, :show, :edit, :update]
   resources :posts do
